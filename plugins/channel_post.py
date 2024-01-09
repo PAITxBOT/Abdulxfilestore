@@ -53,7 +53,12 @@ async def new_post(client: Client, message: Message):
     link = f"https://t.me/{client.username}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
     try:
-        await message.edit_reply_markup(reply_markup)
+        v = await message.edit_reply_markup(reply_markup)
+        k = await message.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
+        await asyncio.sleep(600)
+        await v.delete()
+        await k.edit_text("<b>Your File/Video is successfully deleted!!!</b>")
+
     except Exception as e:
         print(e)
         pass
