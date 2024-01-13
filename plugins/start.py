@@ -90,7 +90,7 @@ async def start_command(client: Client, message: Message):
 
         # Auto-delete messages after a certain delay (e.g., 10 seconds)
         await asyncio.sleep(10)
-        await message.delete()
+        await msg.delete()
         return
     else:
         reply_markup = InlineKeyboardMarkup(
