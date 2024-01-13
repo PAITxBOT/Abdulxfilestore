@@ -76,15 +76,19 @@ async def start_command(client: Client, message: Message):
                 reply_markup = None
 
             try:
-                myrr = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
-                #await asyncio.sleep(0.5)
+                v = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                k = await message.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
                 await asyncio.sleep(10)
-                await myrr.delete()
+                await v.delete()
+                await k.edit_text("<b>Your File/Video is successfully deleted!!!</b>")
+                
             except FloodWait as e:
                 #await asyncio.sleep(e.x)
-                myrr = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                v = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                k = await message.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
                 await asyncio.sleep(10)
-                await myrr.delete()
+                await v.delete()
+                await k.edit_text("<b>Your File/Video is successfully deleted!!!</b>")
             except:
                 pass
         return
