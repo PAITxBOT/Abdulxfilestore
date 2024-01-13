@@ -72,6 +72,7 @@ async def channel_post(client: Client, message: Message):
     await asyncio.sleep(10)
     await reply_text.delete()
     await post_message.delete()
+    await message.delete()
 
 @Bot.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_ID))
 async def new_post(client: Client, message: Message):
